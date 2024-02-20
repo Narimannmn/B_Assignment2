@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') %>
+<body>
+<%- include('navbar') %>
+
+<div class="container">
+    <div class="row">
+        <h1 id="usersTableTitle" class="text-center">There are given tours table</h1>
+        <button type="button" class="btn btn-primary my-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Create new User
+        </button>
+        <div class="d-flex pb-5 justify-content-between">
+            <div class="input-group mb-3">
+                <select id="limit" class="form-select">
+                    <option selected>
+                        <%= limit %>
+                    </option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+    <h1>All tours</h1>
+    <div class="row" >
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Country</th>
+                <th scope="col">City</th>
+                <th scope="col">Hotel</th>
+                <th scope="col">Date arrival</th>
+                <th scope="col">Date departure</th>
+                <th scope="col">Adults</th>
+                <th scope="col">Children</th>
+                <th scope="col">price</th>
+                <th style="width: 50px;">image</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody id="toursContainer">
+            <% for (let index = 0; index < tours.length; index++) { %>
+                <tr>
+                    <th scope="col"><%= index + 1 %></th>
+                    <th scope="col"><%= tours[index].country %></th>
+                    <th scope="col"><%= tours[index].city %></th>
+                    <th scope="col"><%= tours[index].hotel %></th>
+                    <th scope="col"><%= tours[index].dateArrival %></th>
+                    <th scope="col"><%= tours[index].dateDeparture %></th>
+                    <th scope="col"><%= tours[index].adults %></th>
+                    <th scope="col"><%= tours[index].children %></th>
+                    <th scope="col"><%= tours[index].price %></th>
+                    <th style="width: 50px; height:auto; overflow:scroll; display:inline-block; white-space: nowrap;" contenteditable><%= tours[index].img %></th>
+                    <th>
+                        <button class="btn btn-info update-tour-btn" data-toggle="modal" data-target="#updateTourModal" data-id="<%= tours[index]._id %>">Update</button>
+                        <button class="btn btn-danger" onclick="removeTour('<%= tours[index]._id %>')">Remove</button>
+                    </th>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+        <div class="row">
+            <nav class="mx-auto">
+                <ul class="pagination">
+                    <% for (let i=1; i <=totalPages; i++) { %>
+                        <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                            <a class="page-link" href="/admin?p=<%= i %>" data-page="<%= i %>">
+                                <%= i %>
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') %>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <%- include('TourModal') %>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="updateTourModal" tabindex="-1" aria-labelledby="updateTourModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <%- include('TourModal') %>
+            <button type="button" class="btn btn-primary" id="updateTourBtn" data-bs-dismiss="modal">Update</button>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const limitSelect = document.getElementById('limit');
+
+        function updatePaginationLinks(selectedValue) {
+            const paginationLinks = document.querySelectorAll('.pagination a');
+            paginationLinks.forEach(link => {
+                const currentPage = link.getAttribute('data-page');
+                link.href = `/admin?p=${currentPage}&l=${selectedValue}`;
+                console.log(selectedValue)
+            });
+        }
+
+        updatePaginationLinks(limitSelect.value);
+
+        limitSelect.addEventListener('change', function () {
+            const selectedValue = limitSelect.value;
+            window.location.href = `/admin?p=1&l=${selectedValue}`;
+            updatePaginationLinks(selectedValue);
+        });
+
+
+    });
+
+</script>
+</body>
+</html>

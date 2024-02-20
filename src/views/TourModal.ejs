@@ -1,0 +1,60 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Create new tour form</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <form id="tourForm" action="/admin" method="post">
+        <div class="mb-3 row">
+            <label for="country" class="col-sm-2 col-form-label">Country</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="country" id="country" placeholder="Country" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="city" class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="city" id="city" placeholder="City" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="hotel" class="col-sm-2 col-form-label">Hotel</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="hotel" id="hotel" placeholder="Hotel" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="dateArrival" class="col-sm-2 col-form-label">Date Arrival</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="dateArrival" id="dateArrival" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="dateDeparture" class="col-sm-2 col-form-label">Date Departure</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="dateDeparture" id="dateDeparture" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="adults" class="col-sm-2 col-form-label">Adults</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="adults" id="adults" value="1" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="children" class="col-sm-2 col-form-label">Children</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="children" id="children" value="0" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="img" class="col-sm-2 col-form-label">Image URL</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="img" id="img" placeholder="Image URL" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <button type="submit" class="btn btn-primary" id="createTourBtn" data-bs-dismiss="modal">Create</button>
+        </div>
+
+    </form>
+</div>

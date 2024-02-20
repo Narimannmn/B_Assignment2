@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') %>
+<body>
+<%- include('navbar') %>
+<!--slider-->
+
+<div class="container">
+    <form class="p-5 m-5" action="/registration" method="post" id="registrationForm">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-control" />
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" />
+
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="password2">Re-enter password</label>
+            <input type="password" id="password2" name="password2" class="form-control" />
+
+        </div>
+
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4" value="Signup"/>
+
+        <div class="text-center">
+            <p>already have account? <a href="/login">login here!</a></p>
+        </div>
+    </form>
+</div>
+
+<%- include('footer') %>
+</body>
+</html>

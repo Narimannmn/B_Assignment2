@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') %>
+<body>
+<%- include('navbar') %>
+<!--slider-->
+
+<div class="container">
+    <div class="row">
+        <div class="card w-100 m-5 p-5">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="<%= tour.img %>" class="img-fluid rounded-start" alt="Tour Image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= tour.country %>, <%= tour.city %></h5>
+                        <p class="card-text">Hotel: <%= tour.hotel %></p>
+                        <p class="card-text">Arrival: <%= tour.dateArrival %></p>
+                        <p class="card-text">Departure: <%= tour.dateDeparture %></p>
+                        <p class="card-text">Adults: <%= tour.adults %>, Children: <%= tour.children %></p>
+                        <p class="card-text text-small text-danger">Price: <%= tour.price %>$</p>
+                        <form action="/destination/<%= tour.id %>" method="post">
+                            <button id="addToCartBtn" class="btn btn-primary">Add to profile</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('footer') %>
+</body>
+</html>

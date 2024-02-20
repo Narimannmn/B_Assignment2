@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') %>
+<body>
+<%- include('navbar') %>
+<!--slider-->
+
+<section id="hder1">
+    <p class="hdertext">Destinations</p>
+</section>
+<!--
+<section id="ds2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card text-center text-white my-4 py-2">
+                    <div class="card-body">
+                        <h3 class="text-dark">Filter Search</h3>
+                        <div class="form-group">
+                            <label for="countrySelect" class="form-label">Country</label>
+                            <select id="countrySelect" class="form-select"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="citySelect" class="form-label">City</label>
+                            <select id="citySelect" class="form-select"></select>
+                        </div>
+                        <p class="text-dark">Price Range</p>
+                        <div class="form-group">
+                            <input type="text" id="minPriceInput" placeholder="$80" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="maxPriceInput" placeholder="$400" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+<section id="bdy2">
+    <div class="container">
+        <div class="row" id="toursContainer">
+            <% tours.forEach(tour => { %>
+                <div class="col-md-6 col-lg-4" style="margin-bottom: 25px;">
+                    <a href="/destination/<%= tour._id %>" style="color: black; text-decoration: none;">
+                        <div class="card">
+                            <img src="<%= tour.img %>" width="100%" class="img-fluid">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= tour.city %></h5>
+                                <p><%= tour.country %></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<%- include('footer') %>
+</body>
+</html>
