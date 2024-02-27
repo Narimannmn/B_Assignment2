@@ -1,0 +1,62 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Update tour form</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <form id="updateForm" class="d-inline" action="/admin/update" method="POST">
+        <div class="mb-3 row">
+            <label for="dateArrival" class="col-sm-2 col-form-label">Date Arrival</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="dateArrival" id="editDateArrival" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="dateDeparture" class="col-sm-2 col-form-label">Date Departure</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="dateDeparture" id="editDateDeparture" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="adults" class="col-sm-2 col-form-label">Adults</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="adults" id="editAdults" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="children" class="col-sm-2 col-form-label">Children</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="children" id="editChildren" value="3" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="price" class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="price" id="editPrice" required>
+            </div>
+        </div>
+        
+        <div class="mb-3 row">
+            <label for="img1" class="col-sm-2 col-form-label">Image URL</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="img1" id="editImg1" placeholder="Image URL" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="img2" class="col-sm-2 col-form-label">Image URL</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="img2" id="editImg2" placeholder="Image URL" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="img3" class="col-sm-2 col-form-label">Image URL</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="img3" id="editImg3" placeholder="Image URL" required>
+            </div>
+        </div>
+        
+        <div class="mb-3 row">
+            <button type="submit" class="btn btn-primary" id="updateTourBtn" data-bs-dismiss="modal">Update</button>
+        </div>
+
+    </form>
+</div>

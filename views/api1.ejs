@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') %>
+<body class="d-flex flex-column min-vh-100">
+    <%- include('navbar') %>
+
+    <div class="container my-auto">
+        <div class="mt-5">
+            <form action="" class="form-inline justify-content-center">
+                <div class="form-group mb-2">
+                    <input type="text" class="form-control" placeholder="Enter your city" />
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </form>
+
+            <div id="city-time-container" class="mt-4">
+                <!-- City time will be inserted here -->
+            </div>
+
+            <div id="news-container" class="mt-4">
+                <!-- News articles will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+
+<%- include('footer') %>
+    <script src="/js/api.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-light bg-white p-4">
+        <div class="container navbar-expand-md">
+            <span><i class="fas fa-atlas flex-icon1 text-danger h1 mx-2"></i></span>
+            <a style="font-family: 'Satisfy', cursive;font-size: 30px;" class="navbar-brand text-dark"
+               href="#">Travelhor</a>
+            <button class="btn btn-danger text-white px-3" id="hide1"><i class="fas fa-search"></i></button>
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarid">
+                <span class="navbar-toggler-icon my-toggler"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarid">
+                <ul class="navbar-nav p-2">
+                    <li><a class="nav-link text-dark" href="/">Home</a></li>
+                    <li><a class="nav-link text-dark" href="/destination">Travel</a></li>
+                    <% if (!role) { %>
+                    <li><a class="nav-link text-dark" href="/login">Login</a></li>
+                    <% } %>
+                    <% if (role === 'User' || role === 'Admin') { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="nav-link text-dark" href="/history/mytours">MyTours</a></li>
+                                <li><a class="nav-link text-dark" href="/history/viewed">Recently watched tours</a></li>
+                                <li><a class="nav-link text-dark" href="/history/deleted">Recently deleted tours</a></li>
+                                <%if (role === 'Admin') { %>
+                                    <li><a class="nav-link text-dark" href="/admin">Admin dashboard</a></li>
+                                <% } %>
+                            </ul>
+                        </li>
+
+                        <li><a class="nav-link text-dark" href="/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</div>

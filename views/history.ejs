@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') %>
+<body class="d-flex flex-column min-vh-100">
+<%- include('navbar') %>
+<section id="bdy2">
+    <h1 class="mx-auto w-100 text-center">
+        <%= title %>
+    </h1>
+    <div class="container">
+        <div class="row" id="toursContainer">
+            <% tours.forEach(tour => { %>
+                <div class="col-md-6 col-lg-4" style="margin-bottom: 25px;">
+                    <a href="/destination/<%= tour._id %>" style="color: black; text-decoration: none;">
+                        <div class="card">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<%= tour.img1 %>" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<%= tour.img2 %>" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<%= tour.img3 %>" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= tour.city %></h5>
+                                <p><%= tour.country %></p>
+                            </div>
+                            <% if(title === "Added Tours") {%>
+                            <form action="/history/mytours/<%= tour.id %>" method="post">
+                                <button class="btn btn-danger delete-btn" data-tourid="${id}">DELETE</button>
+                            </form>
+                            <% } %>
+                            <% if(title === "Viewed tours") {%>
+                            <form action="/history/viewed/<%= tour.id %>" method="post">
+                                <button id="addToCartBtn" class="btn btn-primary">Add to profile</button>
+                            </form>
+                            <% } %>
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<%- include('footer') %>
+</body>
+</html>
